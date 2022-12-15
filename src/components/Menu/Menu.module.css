@@ -1,0 +1,7 @@
+.menu {
+  background-color: white;
+  max-width: 800px;
+  height: 600px;
+  flex-grow: 1;
+  border-radius: 15px;
+}
