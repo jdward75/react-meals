@@ -1,14 +1,17 @@
 import styles from "./MenuItem.module.css";
 
-const MenuItem = () => {
+const MenuItem = (props) => {
+  const formSubmitHandler = (event) => {
+    event.preventDefault();
+  };
   return (
     <div className={styles["main-container"]}>
       <div className={styles.description}>
-        <label>name</label>
-        <div>description description description</div>
-        <div className={styles.price}>price</div>
+        <label>{props.title}</label>
+        <div>{props.description}</div>
+        <div className={styles.price}>{props.price}</div>
       </div>
-      <form className={styles.controls}>
+      <form className={styles.controls} onSubmit={formSubmitHandler}>
         <div>
           <label htmlFor="quantity">Amount</label>
           <input id="quantity" type="number"></input>

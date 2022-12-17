@@ -1,6 +1,8 @@
+import reactDOM from "react-dom";
 import styles from "./App.module.css";
 import Menu from "./components/Menu/Menu";
 import CartPreview from "./components/Cart/CartPreview";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
           <Menu />
         </div>
       </main>
+      {reactDOM.createPortal(<Cart />, document.getElementById("root-overlay"))}
     </div>
   );
 }
