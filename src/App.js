@@ -3,13 +3,34 @@ import styles from "./App.module.css";
 import Menu from "./components/Menu/Menu";
 import CartPreview from "./components/Cart/CartPreview";
 import Cart from "./components/Cart/Cart";
+import { useReducer, useState } from "react";
+import cartReducer from "./reducers/cartReducer";
 
 function App() {
+  const [showCart, setShowCart] = useState(false);
+  const [cart, dispatchCart] = useReducer(cartReducer, {});
+
+  const displayCart = () => {
+    setShowCart(true);
+  };
+
+  const hideCart = () => {
+    setShowCart(false);
+  };
+
+  const addCartItem = (cartItem) => {
+    dispatchCart({
+      type: "ADD_ITEM",
+      value: cartItem,
+    });
+    console.log(cart);
+  };
+
   return (
     <div className={styles.App}>
       <header>
         <h1 className={styles["app-title"]}>React Meals</h1>
-        <CartPreview />
+        <CartPreview onDisplayCart={displayCart} />
       </header>
       <main className={styles.main}>
         <div className={styles["description"]}>
@@ -24,10 +45,14 @@ function App() {
           </p>
         </div>
         <div className={styles["menu-container"]}>
-          <Menu />
+          <Menu onAddCartItem={addCartItem} />
         </div>
       </main>
-      {reactDOM.createPortal(<Cart />, document.getElementById("root-overlay"))}
+      {showCart &&
+        reactDOM.createPortal(
+          <Cart onHideCart={hideCart} cart={cart} />,
+          document.getElementById("root-overlay")
+        )}
     </div>
   );
 }
