@@ -5,10 +5,12 @@ const cartReducer = (state, action) => {
       prevQuantity = state[action.value.id].quantity;
     }
     const newState = { ...state };
-    return (newState[action.value.id] = {
+    newState[action.value.id] = {
       title: action.value.title,
+      price: action.value.price,
       quantity: prevQuantity + action.value.quantity,
-    });
+    };
+    return newState;
   }
 
   return state;

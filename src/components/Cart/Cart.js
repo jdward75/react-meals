@@ -4,15 +4,28 @@ const Cart = (props) => {
   return (
     <div className={styles.cart}>
       <div className={styles["cart-content"]}>
-        <button onClick={props.onHideCart}>Close</button>
-        {props.cart.forEach((item) => {
+        {Object.entries(props.cart).map(([key, value]) => {
           return (
-            <div>
-              <title>item.title</title>
-              <div>item.quantity</div>
+            <div className={styles["cart-item"]} key={key}>
+              <div className={styles["cart-item-description"]}>
+                <div className={styles["cart-item-description-title"]}>
+                  {value.title}
+                </div>
+                <span className={styles["cart-item-description-price"]}>
+                  {value.price}
+                </span>
+                <span className={styles["cart-item-description-quantity"]}>
+                  X {value.quantity}
+                </span>
+              </div>
+              <div className={styles["cart-item-controls"]}>
+                <button>-</button>
+                <button>+</button>
+              </div>
             </div>
           );
         })}
+        <button onClick={props.onHideCart}>Close</button>
       </div>
     </div>
   );

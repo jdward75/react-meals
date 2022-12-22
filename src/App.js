@@ -23,7 +23,6 @@ function App() {
       type: "ADD_ITEM",
       value: cartItem,
     });
-    console.log(cart);
   };
 
   return (
