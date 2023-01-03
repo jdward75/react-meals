@@ -8,7 +8,11 @@ import cartReducer from "./reducers/cartReducer";
 
 function App() {
   const [showCart, setShowCart] = useState(false);
-  const [cart, dispatchCart] = useReducer(cartReducer, {});
+  const [cart, dispatchCart] = useReducer(cartReducer, {
+    items: {},
+    totalQuantity: 0,
+    totalPrice: 0,
+  });
 
   const displayCart = () => {
     setShowCart(true);
@@ -29,7 +33,7 @@ function App() {
     <div className={styles.App}>
       <header>
         <h1 className={styles["app-title"]}>React Meals</h1>
-        <CartPreview onDisplayCart={displayCart} />
+        <CartPreview onDisplayCart={displayCart} cart={cart} />
       </header>
       <main className={styles.main}>
         <div className={styles["description"]}>
@@ -49,7 +53,11 @@ function App() {
       </main>
       {showCart &&
         reactDOM.createPortal(
-          <Cart onHideCart={hideCart} cart={cart} />,
+          <Cart
+            onHideCart={hideCart}
+            cart={cart}
+            onAddCartItem={addCartItem}
+          />,
           document.getElementById("root-overlay")
         )}
     </div>

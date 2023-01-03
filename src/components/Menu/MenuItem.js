@@ -25,7 +25,7 @@ const MenuItem = (props) => {
       <form className={styles.controls} onSubmit={formSubmitHandler}>
         <div>
           <label htmlFor="quantity">Amount</label>
-          <input id="quantity" type="number" ref={quantityRef}></input>
+          <input id="quantity" type="text" ref={quantityRef}></input>
         </div>
         <button type="submit">+ Add</button>
       </form>
