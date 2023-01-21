@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-meals/static/css/main.433e0c0b.css",
-    "main.js": "/react-meals/static/js/main.d5de8ca5.js",
+    "main.css": "/react-meals/static/css/main.4ea1e189.css",
+    "main.js": "/react-meals/static/js/main.38a4920f.js",
     "static/js/787.0049ae58.chunk.js": "/react-meals/static/js/787.0049ae58.chunk.js",
     "static/media/meals.jpg": "/react-meals/static/media/meals.2971f633fc1382581cbf.jpg",
     "index.html": "/react-meals/index.html",
-    "main.433e0c0b.css.map": "/react-meals/static/css/main.433e0c0b.css.map",
-    "main.d5de8ca5.js.map": "/react-meals/static/js/main.d5de8ca5.js.map",
+    "main.4ea1e189.css.map": "/react-meals/static/css/main.4ea1e189.css.map",
+    "main.38a4920f.js.map": "/react-meals/static/js/main.38a4920f.js.map",
     "787.0049ae58.chunk.js.map": "/react-meals/static/js/787.0049ae58.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.433e0c0b.css",
-    "static/js/main.d5de8ca5.js"
+    "static/css/main.4ea1e189.css",
+    "static/js/main.38a4920f.js"
   ]
 }
