@@ -1,27 +1,32 @@
+import { useContext } from "react";
+import { CartContext } from "../../store/cart-context";
 import styles from "./Cart.module.css";
 import CartItem from "./CartItem";
 
 const Cart = (props) => {
+  const cartCtx = useContext(CartContext);
+
   const order = () => {
-    console.log(props.cart);
+    console.log(cartCtx.cart);
   };
+
   return (
     <div className={styles.cart}>
       <div className={styles["cart-content"]}>
-        {Object.entries(props.cart.items).map(([key, value]) => {
+        {Object.entries(cartCtx.cart.items).map(([key, value]) => {
           return (
             <CartItem
               key={key}
               id={key}
               item={value}
-              onAddCartItem={props.onAddCartItem}
+              onAddCartItem={cartCtx.addItem}
             />
           );
         })}
         <div className={styles["cart-total-price"]}>
           <div className={styles["cart-total-price-label"]}>Total Price</div>
           <div className={styles["cart-total-price-value"]}>
-            {props.cart.totalPrice}
+            {`$${cartCtx.cart.totalPrice}`}
           </div>
         </div>
         <div className={styles["cart-content-footer"]}>

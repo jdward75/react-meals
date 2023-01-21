@@ -45,6 +45,7 @@
   padding: 5px;
   background-color: brown;
   color: white;
+  cursor: pointer;
 }
 
 .line-1 {
